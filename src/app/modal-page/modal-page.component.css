@@ -1,0 +1,82 @@
+section {
+  visibility: hidden;
+  opacity: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 250ms ease-in;
+}
+section.open {
+  visibility: inherit;
+  opacity: 1;
+}
+section .invest-form-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  margin: auto;
+  width: fit-content;
+  padding: 1rem;
+  opacity: 1;
+}
+section .invest-form-modal .container-modal {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+section .invest-form-modal .container-modal .icon {
+  cursor: pointer;
+}
+section .invest-form-modal .container-modal .info-div-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+section .invest-form-modal .container-modal .info-div-modal .invest-header-modal {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+section .invest-form-modal .inputs-modal {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+section .invest-form-modal .inputs-modal input {
+  padding: 0.5rem;
+  text-align: right;
+}
+section .invest-form-modal .inputs-modal input::-webkit-outer-spin-button,
+section .invest-form-modal .inputs-modal input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+section .invest-form-modal .inputs-modal .input-button {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: orange;
+}
+section .invest-form-modal .warning {
+  font-size: 0.75rem;
+  color: red;
+}
+
+/*# sourceMappingURL=modal-page.component.css.map */

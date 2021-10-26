@@ -1,0 +1,63 @@
+@mixin flex($dir) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+$font-size: 1rem;
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+  max-height: 65vh;
+  overflow: auto;
+
+  li {
+    list-style-type: none;
+    border: 1px solid grey;
+    background-color: white;
+    margin: 0.5rem;
+
+    .title-div {
+      @include flex(column);
+
+      .title {
+        font-size: $font-size * 1.5;
+        padding: 0.5rem;
+        font-weight: bold;
+        box-sizing: border-box;
+
+        .invested {
+          font-size: $font-size * 0.75;
+          color: green;
+          margin-left: 0.5rem;
+        }
+      }
+    }
+
+
+    .invest-div {
+      @include flex(row);
+      box-sizing: border-box;
+
+      .details {
+        margin-left: 0.5rem;
+      }
+
+      .invest-button {
+        margin: 0 0.5rem 0.5rem 0;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+#cash {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 3rem;
+}

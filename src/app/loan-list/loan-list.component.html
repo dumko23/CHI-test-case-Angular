@@ -1,0 +1,15 @@
+<ul>
+  <li *ngFor="let loan of loanList">
+    <div class="title-div">
+      <span class="title">{{ loan.title }} <span class="invested" *ngIf="loan.invested">Invested</span></span>
+    </div>
+    <div class="invest-div">
+      <span class="details">Amount available: ${{ loan.available }}</span>
+      <button class="invest-button" (click)="openModal(loan); ">Invest</button>
+    </div>
+  </li>
+</ul>
+
+<app-modal-page [currentLoan]="selectedLoan"></app-modal-page>
+<span id="cash">Total amount available for investment: ${{ totalCash }}</span>
+

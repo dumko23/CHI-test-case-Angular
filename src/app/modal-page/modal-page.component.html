@@ -1,0 +1,42 @@
+<ng-container *ngIf="display$ | async as display">
+  <section [class.open]="display === 'open'"
+           (click)="close()">
+    <form class="invest-form-modal" id="form-id" *ngIf="currentLoan" (click)="$event.stopPropagation()">
+      <div class="container-modal">
+            <span class="icon" (click)="close(); ">
+              <fa-icon [icon]="faTimesCircle"></fa-icon>
+            </span>
+        <div class="info-div-modal">
+                <span class="invest-header-modal">
+                    Invest in loan
+                </span>
+          <span id="current-loan-title" style="margin-bottom: 1rem">{{ currentLoan.title }}
+                </span>
+          <span>
+                    Amount available: ${{ currentLoan.available }}
+                </span>
+          <span style="margin-bottom: 1rem">
+                    Loan ends in: {{ currentLoan.term_remaining / 86400 | number:'1.0-0' }} days
+                </span>
+          <span>
+                    Investment amount($)
+                </span>
+        </div>
+      </div>
+      <div class="inputs-modal">
+        <label>
+          <input type="number" name="input" id="invest-input-modal" [(ngModel)]="investValue"
+                 placeholder="Invest value">
+        </label>
+        <input type="button"
+               value="INVEST"
+               class="input-button"
+               (click)="onInvest()"
+               [disabled]="availableValue === 0"
+        >
+      </div>
+      <span class="warning" *ngIf="warning1">Investment value exceeds available amount</span>
+      <span class="warning" *ngIf="warning2">Provide correct investment value ( > 0)</span>
+    </form>
+  </section>
+</ng-container>

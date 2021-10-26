@@ -1,0 +1,89 @@
+@mixin flex($dir) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+$font-size: 1rem;
+
+section {
+  visibility: hidden;
+  opacity: 0;
+
+  &.open {
+    visibility: inherit;
+    opacity: 1;
+  }
+
+  display: block;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 250ms ease-in;
+
+
+  .invest-form-modal {
+    @include flex(column);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    margin: auto;
+    width: fit-content;
+    padding: 1rem;
+    opacity: 1;
+
+    .container-modal {
+      @include flex(row-reverse);
+
+      .icon {
+        cursor: pointer;
+      }
+
+      .info-div-modal {
+        @include flex(column);
+
+        .invest-header-modal {
+          font-size: $font-size * 1.5;
+          font-weight: bold;
+          margin-bottom: 0.5rem
+        }
+      }
+    }
+
+    .inputs-modal {
+      @include flex(row);
+
+      input {
+        padding: 0.5rem;
+        text-align: right;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      .input-button {
+        padding: 0.6rem 1rem;
+        cursor: pointer;
+        border: none;
+        background-color: orange;
+      }
+    }
+
+    .warning {
+      font-size: $font-size * 0.75;
+      color: red;
+    }
+  }
+}
